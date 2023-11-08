@@ -69,8 +69,12 @@ const users = [
 // TODO 2 - Membuat function yang menampilkan semua data users
 // Gunakan for/for-of
 const all = () => {
-  for (const user of users) {
-    console.log(`Name: ${user.name}, Age: ${user.age}, Major: ${user.major}`);
+  console.log("### List of Users ###");
+  for (let i = 0; i < users.length; i++) {
+    console.log(`User ${i + 1}:`);
+    console.log(`Name: ${users[i].name}`);
+    console.log(`Age: ${users[i].age}`);
+    console.log(`Major: ${users[i].major}`);
   }
 }
 
@@ -78,18 +82,30 @@ const all = () => {
 // Gunakan metode push
 const store = (user) => {
   users.push(user);
+  console.log(`${user.name} has been added to the list of users.`);
 }
 
 // TODO 4 - Membuat function untuk mengupdate data users
 // Ganti data users berdasarkan index pada array
 const update = (index, user) => {
-  users[index] = user;
+  if (index >= 0 && index < users.length) {
+    console.log(`User ${index + 1} has been updated.`);
+    users[index] = user;
+  } else {
+    console.log("Invalid index for updating user.");
+  }
 }
 
 // TODO 5 - Membuat function untuk menghapus data users berdasarkan index
 // Gunakan metode splice
 const destroy = (index) => {
-  users.splice(index, 1);
+  if (index >= 0 && index < users.length) {
+    const deletedUser = users.splice(index, 1);
+    console.log(`User ${deletedUser[0].name} has been removed from the list.`);
+  } else {
+    console.log("Invalid index for deleting user.");
+  }
 }
+
 
 export default Todo;

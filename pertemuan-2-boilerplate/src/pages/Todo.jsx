@@ -90,7 +90,9 @@ const store = (user) => {
 const update = (index, user) => {
   if (index >= 0 && index < users.length) {
     console.log(`User ${index + 1} has been updated.`);
-    users[index] = user;
+    users[index].name = user.name;
+    users[index].age = user.age;
+    users[index].major = user.major;
   } else {
     console.log("Invalid index for updating user.");
   }
